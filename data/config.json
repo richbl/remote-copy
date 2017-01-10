@@ -1,0 +1,54 @@
+{
+  "details":
+    {
+      "title": "A bash script to remotely copy file(s)/folder(s) using scp",
+      "syntax": "remote_copy.sh -u username [-p password] -w website [-P port] -s source(s) -d destination",
+      "version": "0.7.0",
+      "compress_results": true
+    },
+  "arguments":
+    [
+      {
+        "short_form": "-u",
+        "long_form": "--username",
+        "text_string": "username",
+        "description": "username (must have local/remote permissions)",
+        "required": true
+      },
+      {
+        "short_form": "-p",
+        "long_form": "--password",
+        "text_string": "password",
+        "description": "password used to access remote server (optional)",
+        "required": false
+      },
+      {
+        "short_form": "-w",
+        "long_form": "--website",
+        "text_string": "website",
+        "description": "website domain name (e.g., example.com)",
+        "required": true
+      },
+      {
+        "short_form": "-P",
+        "long_form": "--port",
+        "text_string": "port",
+        "description": "website/server SSH port",
+        "required": false
+      },
+      {
+        "short_form": "-s",
+        "long_form": "--source",
+        "text_string": "source(s)",
+        "description": "source file(s)/folder(s) path (quote mult. sources, \"/path/file1 /path/folder2\")",
+        "required": true
+      },
+      {
+        "short_form": "-d",
+        "long_form": "--destination",
+        "text_string": "destination",
+        "description": "destination file(s)/folder(s) path",
+        "required": true
+      }
+    ]
+}
