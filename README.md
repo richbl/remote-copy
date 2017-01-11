@@ -38,7 +38,7 @@ Here's the default response when running `remote_copy.sh` with no arguments:
 
        |
        | A bash script to remotely copy file(s)/folder(s) using scp
-       |   0.7.0
+       |   0.7.1
        |
        | Usage:
        |   remote_copy -u username [-p password] -w website [-P port] -s source(s) -d destination
@@ -47,13 +47,13 @@ Here's the default response when running `remote_copy.sh` with no arguments:
        |   -p, --password 		password used to access remote server (optional)
        |   -w, --website 		website domain name (e.g., example.com)
        |   -P, --port 			website/server SSH port
-       |   -s, --source(s) 		source file(s)/folder(s) path (quote mult. sources, "/path/file1 /path/folder2")
+       |   -s, --source 		source file(s)/folder(s) path (quote mult. sources, "/path/file1 /path/folder2")
        |   -d, --destination 	destination folder path
        |
 
       Error: username argument (-u|--username) missing.
       Error: website argument (-w|--website) missing.
-      Error: source(s) argument (-s|--source(s)) missing.
+      Error: source argument (-s|--source) missing.
       Error: destination argument (-d|--destination) missing.
 
 
@@ -65,7 +65,7 @@ When arguments are correctly passed, the script provides feedback on the success
 
        |
        | A bash script to remotely copy file(s)/folder(s) using scp
-       |   0.7.0
+       |   0.7.1
        |
        | Usage:
        |   remote_copy -u username [-p password] -w website [-P port] -s source(s) -d destination
@@ -74,7 +74,7 @@ When arguments are correctly passed, the script provides feedback on the success
        |   -p, --password 		password used to access remote server (optional)
        |   -w, --website 		website domain name (e.g., example.com)
        |   -P, --port 			website/server SSH port
-       |   -s, --source(s) 		source file(s)/folder(s) path (quote mult. sources, "/path/file1 /path/folder2")
+       |   -s, --source 		source file(s)/folder(s) path (quote mult. sources, "/path/file1 /path/folder2")
        |   -d, --destination 	destination folder path
        |
 
