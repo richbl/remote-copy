@@ -17,7 +17,7 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # -----------------------------------------------------------------------------
 #
 # A bash script to remotely copy file(s)/folder(s) using scp
-# version: 0.7.0
+# version: 0.7.1
 #
 # requirements:
 #  --sshpass command installed
@@ -95,16 +95,19 @@ if [ ${RETURN_CODE} -ne 0 ]; then
 else
   if [ "$(get_config_details compress_results)" == "true" ]; then
     ARCHIVE="$(get_config_arg_value website)"-"$(basename $(get_config_arg_value source))"-"$(date +"%Y%m%d%H%M%S")".tar.gz
-    ARCHIVE_LOCATION="$(get_config_arg_value destination)/${ARCHIVE}"
 
-    (CWD=$PWD && cd ${TMP_DIR} && tar -zcf ${CWD}/${ARCHIVE_LOCATION} *)
+    # TODO should be a better way to archive relative folders (-C option fails)
+    (CWD=$PWD && cd ${TMP_DIR} && (tar -zcf ${ARCHIVE} *) && cd ${CWD})
+
+    mv "${TMP_DIR}"/${ARCHIVE} "$(get_config_arg_value destination)" &>/dev/null;
     echo "Success."
-    echo "Remote file(s)/folder(s) $(get_config_arg_value website):$(get_config_arg_value source) copied to ${ARCHIVE_LOCATION}."
+    echo "Remote file(s)/folder(s) $(get_config_arg_value website):$(get_config_arg_value source) archived and copied to $(get_config_arg_value destination)/${ARCHIVE}"
     rm -rf "${TMP_DIR}"
   else
     mv "${TMP_DIR}"/* "$(get_config_arg_value destination)" &>/dev/null;
     echo "Success."
     echo "Remote file(s)/folder(s) $(get_config_arg_value website):$(get_config_arg_value source) copied to $(get_config_arg_value destination)/"$(basename $(get_config_arg_value source))"."
+    rm -rf "${TMP_DIR}"
   fi
 
   quit 0

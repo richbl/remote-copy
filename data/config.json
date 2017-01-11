@@ -3,7 +3,7 @@
     {
       "title": "A bash script to remotely copy file(s)/folder(s) using scp",
       "syntax": "remote_copy.sh -u username [-p password] -w website [-P port] -s source(s) -d destination",
-      "version": "0.7.0",
+      "version": "0.7.1",
       "compress_results": true
     },
   "arguments":
