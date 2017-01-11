@@ -39,7 +39,7 @@
       {
         "short_form": "-s",
         "long_form": "--source",
-        "text_string": "source(s)",
+        "text_string": "source",
         "description": "source file(s)/folder(s) path (quote mult. sources, \"/path/file1 /path/folder2\")",
         "required": true
       },
