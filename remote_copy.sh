@@ -62,12 +62,14 @@ check_for_args_completeness
 ARG_PORT=$(get_config_arg_value port)
 PASSWORD=$(get_config_arg_value password)
 TMP_DIR=$(mktemp -d)
+SRC_VALUE=$(get_config_arg_value source)
 
 if [ -z ${PASSWORD} ]; then
   # no password passed in arguments, so use scp
   #
   echo "Copying remote file(s)/folder(s) using scp..."
   echo
+
   scp -r -P "${ARG_PORT:-22}" "$(get_config_arg_value username)"@"$(get_config_arg_value website)":"$(get_config_arg_value source)" "${TMP_DIR}" &>/dev/null;
   RETURN_CODE=$?
 else
@@ -75,6 +77,7 @@ else
   #
   echo "Copying remote file(s)/folder(s) using sshpass..."
   echo
+
   sshpass -p "$(get_config_arg_value password)" scp -r -P "${ARG_PORT:-22}" "$(get_config_arg_value username)"@"$(get_config_arg_value website)":"$(get_config_arg_value source)" "${TMP_DIR}" &>/dev/null;
   RETURN_CODE=$?
 fi
@@ -94,7 +97,7 @@ if [ ${RETURN_CODE} -ne 0 ]; then
   quit 1
 else
   if [ "$(get_config_details compress_results)" == "true" ]; then
-    ARCHIVE="$(get_config_arg_value website)"-"$(basename $(get_config_arg_value source))"-"$(date +"%Y%m%d%H%M%S")".tar.gz
+    ARCHIVE="$(get_config_arg_value website)"-"$(basename ${SRC_VALUE%% *})"-"$(date +"%Y%m%d%H%M%S")".tar.gz
 
     # TODO should be a better way to archive relative folders (-C option fails)
     (CWD=$PWD && cd ${TMP_DIR} && (tar -zcf ${ARCHIVE} *) && cd ${CWD})
@@ -106,7 +109,7 @@ else
   else
     mv "${TMP_DIR}"/* "$(get_config_arg_value destination)" &>/dev/null;
     echo "Success."
-    echo "Remote file(s)/folder(s) $(get_config_arg_value website):$(get_config_arg_value source) copied to $(get_config_arg_value destination)/"$(basename $(get_config_arg_value source))"."
+    echo "Remote file(s)/folder(s) $(get_config_arg_value website):$(get_config_arg_value source) copied to $(get_config_arg_value destination)/"$(basename ${SRC_VALUE%% *})"."
     rm -rf "${TMP_DIR}"
   fi
 
