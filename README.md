@@ -103,6 +103,13 @@ This optional syntax provides a level of backward compatibility with this projec
 
 
 ### Choosing Between the `scp` and `sshpass` Commands
+
 **Remote-Copy** (`remote_copy.sh`) uses two methods for copying folders from a remote server: [scp](http://man7.org/linux/man-pages/man1/scp.1.html) and [sshpass](http://linux.die.net/man/1/sshpass). The decision on which command to use is based on whether the `-p, --password` argument has been passed into the script. If no password is used, then the [scp](http://man7.org/linux/man-pages/man1/scp.1.html) command is used directly. If a password is passed into the script, then the [sshpass](http://linux.die.net/man/1/sshpass) command is used instead.
 
 In general, it's preferred to use [scp](http://man7.org/linux/man-pages/man1/scp.1.html) with a current [certificate of authority](https://www.ssh.com/manuals/server-admin/44/Server_Authentication_with_Certificates.html) in place on the remote server. For the security-minded, users of this script should review the section entitled *Security Considerations* on the [sshpass](http://linux.die.net/man/1/sshpass) website.
+
+## A Note on Cloning: This Project Uses Git Submodules
+
+This project uses a Git [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) project, specifically the `bash-lib` folder to keep this project up-to-date without manual intervention.
+
+So, be sure to clone this project with the `--recursive` switch (`git clone --recursive https://github.com/richbl/a-bash-template`) so any submodule project(s) will be automatically cloned as well. If you clone into this project without this switch, you'll likely see empty submodule project folders (depending on your version of Git).
