@@ -17,7 +17,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 # -----------------------------------------------------------------------------
 #
 # A bash script to remotely copy file(s)/folder(s) using scp
-# version: 0.7.1
 #
 # requirements:
 #  --sshpass command installed
@@ -41,9 +40,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 #
 shopt -s extglob
 EXEC_DIR="$(dirname "$0")"
-. ${EXEC_DIR}/lib/args
-
-ARGS_FILE="${EXEC_DIR}/data/config.json"
+# shellcheck source=bash-lib/args
+source "${EXEC_DIR}/bash-lib/args"
 
 # [user-config] set any external program dependencies here
 declare -a REQ_PROGRAMS=('jq' 'sshpass')
@@ -51,7 +49,7 @@ declare -a REQ_PROGRAMS=('jq' 'sshpass')
 # -----------------------------------------------------------------------------
 # perform script configuration, arguments parsing, and validation
 #
-check_program_dependencies "REQ_PROGRAMS[@]"
+check_program_dependencies "${REQ_PROGRAMS[@]}"
 display_banner
 scan_for_args "$@"
 check_for_args_completeness
