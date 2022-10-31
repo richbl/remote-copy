@@ -108,7 +108,7 @@ This optional syntax provides a level of backward compatibility with this projec
 
 In general, it's preferred to use [scp](http://man7.org/linux/man-pages/man1/scp.1.html) with a current [certificate of authority](https://www.ssh.com/manuals/server-admin/44/Server_Authentication_with_Certificates.html) in place on the remote server. For the security-minded, users of this script should review the section entitled *Security Considerations* on the [sshpass](http://linux.die.net/man/1/sshpass) website.
 
-## A Note on Cloning: This Project Uses Git Submodules
+## <img src="https://user-images.githubusercontent.com/10182110/198916805-2c139481-8d92-4484-b92e-1d440df68045.jpg" width="150" /> A Note on Cloning: This Project Uses Git Submodules
 
 This project uses a Git [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) project, specifically the `bash-lib` folder to keep this project up-to-date without manual intervention.
 
