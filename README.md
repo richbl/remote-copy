@@ -5,7 +5,7 @@
 
 > Note that **Remote-Copy** is a backward-compatible upgrade of the [**Remote-Folder-Copy**](https://github.com/richbl/remote-folder-copy) project. In general, you will be better served using this project, as [**Remote-Folder-Copy**](https://github.com/richbl/remote-folder-copy) will likely no longer be maintained in favor of this project.
 
-## [<img src="https://cloud.githubusercontent.com/assets/10182110/18208786/ae5d76b2-70e5-11e6-9663-cfe47d13f4d9.png" width="150" />](https://github.com/richbl/a-bash-template)Developed with a Bash Template (BaT)
+## [Developed with a Bash Template (BaT)](https://github.com/richbl/a-bash-template)[<img src="https://user-images.githubusercontent.com/10182110/145758715-b127adfc-710b-49d3-9ede-151adc83ae76.png" width="150" />](https://github.com/richbl/a-bash-template)
 
 **Remote-Copy** uses a bash template (BaT) called **[A-Bash-Template](https://github.com/richbl/a-bash-template)** designed to make script development and command line argument management more robust, easier to implement, and easier to maintain. Here are a few of those features:
 
@@ -108,7 +108,7 @@ This optional syntax provides a level of backward compatibility with this projec
 
 In general, it's preferred to use [scp](http://man7.org/linux/man-pages/man1/scp.1.html) with a current [certificate of authority](https://www.ssh.com/manuals/server-admin/44/Server_Authentication_with_Certificates.html) in place on the remote server. For the security-minded, users of this script should review the section entitled *Security Considerations* on the [sshpass](http://linux.die.net/man/1/sshpass) website.
 
-## IMPORTANT: This Project Uses Git Submodules <img src="https://user-images.githubusercontent.com/10182110/198916805-2c139481-8d92-4484-b92e-1d440df68045.jpg" width="150" />
+## IMPORTANT: This Project Uses Git Submodules  <img src="https://user-images.githubusercontent.com/10182110/208980142-08d4cf6e-20ac-4243-ac69-e056258b0315.png" width="150" />
 
 This project uses a Git [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules) project, specifically the `bash-lib` folder to keep this project up-to-date without manual intervention.
 
